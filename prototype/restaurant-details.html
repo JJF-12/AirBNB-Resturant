@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bella Vista Italian - RestaurantBook</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .restaurant-header { background: white; padding: 2rem; margin-bottom: 2rem; }
+        .restaurant-info { display: flex; gap: 2rem; align-items: start; flex-wrap: wrap; }
+        .restaurant-details { flex: 1; min-width: 300px; }
+        .booking-widget { background: #f8f9fa; padding: 1.5rem; min-width: 300px; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0; }
+        .gallery img { width: 100%; height: 150px; object-fit: cover; }
+        .menu-section { background: white; padding: 2rem; margin: 2rem 0; }
+        .menu-item { display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid #eee; }
+        .reviews-section { background: white; padding: 2rem; margin: 2rem 0; }
+        .review-item { padding: 1rem 0; border-bottom: 1px solid #eee; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">RestaurantBook</div>
+            <div class="burger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="restaurants.html">Restaurants</a></li>
+                <li><a href="hotel-search.html">Hotels</a></li>
+                <li><a href="review.html">Write Review</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="restaurant-header">
+            <div class="restaurant-info">
+                <div class="restaurant-details">
+                    <h1>Bella Vista Italian</h1>
+                    <p>📍 123 Main Street, New York, NY 10001</p>
+                    <div class="rating">
+                        <span class="stars">★★★★★</span>
+                        <span>(124 reviews) • Italian Cuisine</span>
+                    </div>
+                    <p style="margin: 1rem 0;">Authentic Italian cuisine with fresh ingredients and traditional recipes passed down through generations.</p>
+                    <p><strong>Amenities:</strong> Outdoor Seating, Wine Bar, Private Dining, Valet Parking</p>
+                </div>
+                
+                <div class="booking-widget">
+                    <h3>Make a Reservation</h3>
+                    <form style="display: flex; flex-direction: column; gap: 1rem;">
+                        <input type="date" class="form-control" required>
+                        <select class="form-control">
+                            <option>6:00 PM</option>
+                            <option>6:30 PM</option>
+                            <option>7:00 PM</option>
+                            <option>7:30 PM</option>
+                            <option>8:00 PM</option>
+                        </select>
+                        <input type="number" placeholder="Number of guests" min="1" max="20" class="form-control" required>
+                        <button type="submit" class="btn btn-primary">Book Now - $45/person</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="gallery">
+            <img src="https://via.placeholder.com/300x200/ff5a5f/white?text=Interior" alt="Restaurant Interior">
+            <img src="https://via.placeholder.com/300x200/28a745/white?text=Food+1" alt="Signature Dish">
+            <img src="https://via.placeholder.com/300x200/6c757d/white?text=Food+2" alt="Pasta">
+            <img src="https://via.placeholder.com/300x200/17a2b8/white?text=Ambiance" alt="Dining Area">
+        </div>
+
+        <div class="menu-section">
+            <h2>Menu</h2>
+            <h3>Appetizers</h3>
+            <div class="menu-item">
+                <div>
+                    <strong>Bruschetta Classica</strong>
+                    <p>Fresh tomatoes, basil, garlic on toasted bread</p>
+                </div>
+                <span>$12</span>
+            </div>
+            <div class="menu-item">
+                <div>
+                    <strong>Antipasto Platter</strong>
+                    <p>Selection of cured meats, cheeses, and olives</p>
+                </div>
+                <span>$18</span>
+            </div>
+            
+            <h3>Main Courses</h3>
+            <div class="menu-item">
+                <div>
+                    <strong>Spaghetti Carbonara</strong>
+                    <p>Traditional Roman pasta with eggs, cheese, and pancetta</p>
+                </div>
+                <span>$24</span>
+            </div>
+            <div class="menu-item">
+                <div>
+                    <strong>Osso Buco</strong>
+                    <p>Braised veal shanks with risotto Milanese</p>
+                </div>
+                <span>$38</span>
+            </div>
+        </div>
+
+        <div class="reviews-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2>Reviews (124)</h2>
+                <a href="review.html" class="btn btn-primary">Write Review</a>
+            </div>
+            
+            <div class="review-item">
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <strong>John D.</strong> • 2 days ago
+                </div>
+                <p>Excellent food and service! The carbonara was perfectly creamy and the atmosphere was romantic. Will definitely return.</p>
+                <div style="margin-top: 0.5rem;">
+                    <small>Food: ★★★★★ | Service: ★★★★★ | Value: ★★★★☆</small>
+                </div>
+            </div>
+            
+            <div class="review-item">
+                <div class="rating">
+                    <span class="stars">★★★★☆</span>
+                    <strong>Sarah M.</strong> • 1 week ago
+                </div>
+                <p>Great Italian food with authentic flavors. The osso buco was tender and flavorful. Service was a bit slow but worth the wait.</p>
+                <div style="margin-top: 0.5rem;">
+                    <small>Food: ★★★★★ | Service: ★★★☆☆ | Value: ★★★★☆</small>
+                </div>
+            </div>
+            
+            <div class="review-item">
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <strong>Mike R.</strong> • 2 weeks ago
+                </div>
+                <p>Outstanding dining experience! Every dish was perfectly prepared and the wine selection was impressive.</p>
+                <div style="margin-top: 0.5rem;">
+                    <small>Food: ★★★★★ | Service: ★★★★★ | Value: ★★★★☆</small>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 RestaurantBook - Restaurant Review Portal. All rights reserved.</p>
+            <p>Developer Team: Junaid Jabbar Faizi, Sami Ullah Khan, Usman Ehsan</p>
+            <p><a href="index.html" style="color: #ccc;">Home</a> | <a href="restaurants.html" style="color: #ccc;">Restaurants</a> | <a href="hotel-search.html" style="color: #ccc;">Hotels</a> | <a href="review.html" style="color: #ccc;">Write Review</a> | <a href="login.html" style="color: #ccc;">Login</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const burger = document.querySelector('.burger');
+            
+            navLinks.classList.toggle('active');
+            burger.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

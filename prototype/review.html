@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Write Review - RestaurantBook</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .star-rating { font-size: 1.5rem; margin: 0.5rem 0; }
+        .star { color: #ddd; cursor: pointer; }
+        .review-container { max-width: 800px; margin: 2rem auto; }
+        .review-form { background: white; padding: 2rem; border: 1px solid #ddd; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
+        .form-control { width: 100%; padding: 12px; border: 2px solid #e1e5e9; font-size: 16px; }
+        .imdb-style-header { background: #f5f5f0; padding: 1.5rem; margin-bottom: 1.5rem; }
+        .imdb-style-header h3 { margin: 0 0 0.5rem 0; color: #333; }
+        .imdb-style-header p { margin: 0; color: #666; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">RestaurantBook</div>
+            <div class="burger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="restaurants.html">Restaurants</a></li>
+                <li><a href="hotel-search.html">Hotels</a></li>
+                <li><a href="review.html">Write Review</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container review-container">
+        <h1>Write a Review</h1>
+        <div class="review-form">
+            <div class="form-group">
+                <label for="review_type">Review Type</label>
+                <select id="review_type" class="form-control" onchange="loadCities()">
+                    <option value="">Choose what to review...</option>
+                    <option value="restaurant">Restaurant</option>
+                    <option value="hotel">Hotel</option>
+                </select>
+            </div>
+            
+            <div class="form-group" id="city_group" style="display: none;">
+                <label for="city_select">Select City</label>
+                <select id="city_select" class="form-control" onchange="loadPlaces()">
+                    <option value="">Choose a city...</option>
+                    <option value="New York">New York</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="Chicago">Chicago</option>
+                </select>
+            </div>
+            
+            <div class="form-group" id="place_group" style="display: none;">
+                <label for="place_select" id="place_label">Select Place</label>
+                <select id="place_select" class="form-control" onchange="showReviewForm()">
+                    <option value="">Choose a place...</option>
+                </select>
+            </div>
+        </div>
+        
+        <div id="review_form_container" style="display: none;">
+            <form class="review-form">
+                <div class="imdb-style-header">
+                    <h3 id="place_name_display"></h3>
+                    <p id="place_details"></p>
+                </div>
+                
+                <div id="ratings_container"></div>
+
+
+            <div class="form-group">
+                <label for="review_text">Your Review</label>
+                <textarea name="review_text" id="review_text" class="form-control" rows="5" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label><input type="checkbox" name="is_anonymous"> Submit anonymously</label>
+            </div>
+
+            <div class="form-group" id="anonymous-name" style="display:none;">
+                <label for="reviewer_name">Your Name</label>
+                <input type="text" name="reviewer_name" id="reviewer_name" class="form-control">
+            </div>
+
+                <button type="button" class="btn btn-primary" onclick="alert('Review submitted! (Demo)')">Submit Review</button>
+            </form>
+        </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 RestaurantBook - Restaurant Review Portal. All rights reserved.</p>
+            <p>Developer Team: Junaid Jabbar Faizi, Sami Ullah Khan, Usman Ehsan</p>
+            <p><a href="index.html" style="color: #ccc;">Home</a> | <a href="restaurants.html" style="color: #ccc;">Restaurants</a> | <a href="hotel-search.html" style="color: #ccc;">Hotels</a> | <a href="review.html" style="color: #ccc;">Write Review</a> | <a href="login.html" style="color: #ccc;">Login</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const burger = document.querySelector('.burger');
+            
+            navLinks.classList.toggle('active');
+            burger.classList.toggle('active');
+        }
+        
+        function loadCities() {
+            const reviewType = document.getElementById('review_type').value;
+            const cityGroup = document.getElementById('city_group');
+            
+            if (!reviewType) {
+                cityGroup.style.display = 'none';
+                return;
+            }
+            
+            cityGroup.style.display = 'block';
+            document.getElementById('place_label').textContent = `Select ${reviewType === 'restaurant' ? 'Restaurant' : 'Hotel'}`;
+        }
+        
+        function loadPlaces() {
+            const reviewType = document.getElementById('review_type').value;
+            const city = document.getElementById('city_select').value;
+            const placeGroup = document.getElementById('place_group');
+            const placeSelect = document.getElementById('place_select');
+            
+            if (!city || !reviewType) {
+                placeGroup.style.display = 'none';
+                return;
+            }
+            
+            // Demo data
+            const places = {
+                restaurant: {
+                    'New York': [{ name: 'Bella Vista Italian', type: 'Italian' }, { name: 'Dragon Palace', type: 'Chinese' }],
+                    'Los Angeles': [{ name: 'Sunset Grill', type: 'American' }],
+                    'Chicago': [{ name: 'Deep Dish Palace', type: 'Pizza' }]
+                },
+                hotel: {
+                    'New York': [{ name: 'Grand Hotel Plaza', type: '5 Star' }, { name: 'Manhattan Boutique', type: '4 Star' }],
+                    'Los Angeles': [{ name: 'Hollywood Resort', type: '4 Star' }],
+                    'Chicago': [{ name: 'Windy City Hotel', type: '3 Star' }]
+                }
+            };
+            
+            placeSelect.innerHTML = `<option value="">Choose a ${reviewType}...</option>`;
+            const cityPlaces = places[reviewType][city] || [];
+            cityPlaces.forEach(place => {
+                placeSelect.innerHTML += `<option value="${place.name}" data-type="${place.type}">${place.name} - ${place.type}</option>`;
+            });
+            placeGroup.style.display = 'block';
+        }
+        
+        function showReviewForm() {
+            const select = document.getElementById('place_select');
+            const option = select.options[select.selectedIndex];
+            
+            if (!option.value) {
+                document.getElementById('review_form_container').style.display = 'none';
+                return;
+            }
+            
+            const reviewType = document.getElementById('review_type').value;
+            document.getElementById('place_name_display').textContent = option.value;
+            document.getElementById('place_details').textContent = `${option.dataset.type} • ${document.getElementById('city_select').value}`;
+            
+            // Generate rating fields
+            const ratingsContainer = document.getElementById('ratings_container');
+            let ratingsHTML = '';
+            
+            if (reviewType === 'restaurant') {
+                const ratings = ['Food Quality', 'Service Quality', 'Value for Money'];
+                ratings.forEach(rating => {
+                    ratingsHTML += `
+                        <div class="form-group">
+                            <label>${rating}</label>
+                            <div class="star-rating">
+                                <span class="star" onclick="setRating(this, 1)">★</span>
+                                <span class="star" onclick="setRating(this, 2)">★</span>
+                                <span class="star" onclick="setRating(this, 3)">★</span>
+                                <span class="star" onclick="setRating(this, 4)">★</span>
+                                <span class="star" onclick="setRating(this, 5)">★</span>
+                            </div>
+                        </div>`;
+                });
+            } else {
+                const ratings = ['Cleanliness', 'Service', 'Facilities', 'Location', 'Value for Money'];
+                ratings.forEach(rating => {
+                    ratingsHTML += `
+                        <div class="form-group">
+                            <label>${rating}</label>
+                            <div class="star-rating">
+                                <span class="star" onclick="setRating(this, 1)">★</span>
+                                <span class="star" onclick="setRating(this, 2)">★</span>
+                                <span class="star" onclick="setRating(this, 3)">★</span>
+                                <span class="star" onclick="setRating(this, 4)">★</span>
+                                <span class="star" onclick="setRating(this, 5)">★</span>
+                            </div>
+                        </div>`;
+                });
+            }
+            
+            ratingsContainer.innerHTML = ratingsHTML;
+            document.getElementById('review_form_container').style.display = 'block';
+        }
+        
+        function setRating(star, rating) {
+            const stars = star.parentElement.querySelectorAll('.star');
+            stars.forEach((s, i) => s.style.color = i < rating ? '#ffc107' : '#ddd');
+        }
+        
+        function toggleAnonymous() {
+            const checkbox = document.getElementById('is_anonymous');
+            const nameField = document.getElementById('anonymous-name');
+            nameField.style.display = checkbox.checked ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>

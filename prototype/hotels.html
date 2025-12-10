@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hotels - RestaurantBook</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hotel-card { margin-bottom: 2rem; }
+        .imdb-rating { background: #f5f5f0; padding: 1.5rem; margin: 1rem 0; }
+        .rating-bar { display: flex; align-items: center; margin: 0.5rem 0; }
+        .rating-label { width: 120px; font-size: 0.9rem; }
+        .bar-container { flex: 1; height: 8px; background: #ddd; margin: 0 1rem; position: relative; }
+        .bar-fill { height: 100%; background: linear-gradient(90deg, #ff6b35, #f7931e, #ffd23f); }
+        .rating-score { font-weight: bold; color: #ff6b35; }
+        .overall-score { font-size: 2rem; font-weight: bold; color: #ff6b35; text-align: center; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">RestaurantBook</div>
+            <div class="burger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="restaurants.html">Restaurants</a></li>
+                <li><a href="hotels.html">Hotels</a></li>
+                <li><a href="review.html">Write Review</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container" style="margin: 2rem auto;">
+        <h1>Hotel Reviews & Ratings</h1>
+        
+        <div class="hotel-card card">
+            <img src="placeholder.jpg" alt="Grand Hotel Plaza" class="card-img">
+            <div class="card-content">
+                <h2>Grand Hotel Plaza</h2>
+                <p>📍 New York, USA</p>
+                <p>⭐⭐⭐⭐⭐ 5 Star Hotel</p>
+                
+                <div class="imdb-rating">
+                    <div class="overall-score">4.7/5</div>
+                    <p style="text-align: center; margin-bottom: 1rem;">Based on 342 reviews</p>
+                    
+                    <div class="rating-bar">
+                        <span class="rating-label">Cleanliness</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 92%;"></div>
+                        </div>
+                        <span class="rating-score">4.6</span>
+                    </div>
+                    
+                    <div class="rating-bar">
+                        <span class="rating-label">Service</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 88%;"></div>
+                        </div>
+                        <span class="rating-score">4.4</span>
+                    </div>
+                    
+                    <div class="rating-bar">
+                        <span class="rating-label">Facilities</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 85%;"></div>
+                        </div>
+                        <span class="rating-score">4.3</span>
+                    </div>
+                    
+                    <div class="rating-bar">
+                        <span class="rating-label">Location</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 95%;"></div>
+                        </div>
+                        <span class="rating-score">4.8</span>
+                    </div>
+                    
+                    <div class="rating-bar">
+                        <span class="rating-label">Value</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 78%;"></div>
+                        </div>
+                        <span class="rating-score">3.9</span>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <button class="btn btn-primary">Book Now - $299.00/night</button>
+                    <a href="hotel-details.html" class="btn btn-secondary">View Reviews</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hotel-card card">
+            <img src="placeholder.jpg" alt="Manhattan Boutique Hotel" class="card-img">
+            <div class="card-content">
+                <h2>Manhattan Boutique Hotel</h2>
+                <p>📍 New York, USA</p>
+                <p>⭐⭐⭐⭐ 4 Star Hotel</p>
+                
+                <div class="imdb-rating">
+                    <div class="overall-score">4.2/5</div>
+                    <p style="text-align: center; margin-bottom: 1rem;">Based on 198 reviews</p>
+                    
+                    <div class="rating-bar">
+                        <span class="rating-label">Cleanliness</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 82%;"></div>
+                        </div>
+                        <span class="rating-score">4.1</span>
+                    </div>
+                    
+                    <div class="rating-bar">
+                        <span class="rating-label">Service</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 79%;"></div>
+                        </div>
+                        <span class="rating-score">4.0</span>
+                    </div>
+                    
+                    <div class="rating-bar">
+                        <span class="rating-label">Facilities</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 85%;"></div>
+                        </div>
+                        <span class="rating-score">4.3</span>
+                    </div>
+                    
+                    <div class="rating-bar">
+                        <span class="rating-label">Location</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 90%;"></div>
+                        </div>
+                        <span class="rating-score">4.5</span>
+                    </div>
+                    
+                    <div class="rating-bar">
+                        <span class="rating-label">Value</span>
+                        <div class="bar-container">
+                            <div class="bar-fill" style="width: 72%;"></div>
+                        </div>
+                        <span class="rating-score">3.6</span>
+                    </div>
+                </div>
+                
+                <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                    <button class="btn btn-primary">Book Now - $189.00/night</button>
+                    <a href="hotel-details.html" class="btn btn-secondary">View Reviews</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 RestaurantBook - Restaurant Review Portal. All rights reserved.</p>
+            <p>Developer Team: Junaid Jabbar Faizi, Sami Ullah Khan, Usman Ehsan</p>
+            <p><a href="index.html" style="color: #ccc;">Home</a> | <a href="restaurants.html" style="color: #ccc;">Restaurants</a> | <a href="hotels.html" style="color: #ccc;">Hotels</a> | <a href="review.html" style="color: #ccc;">Write Review</a> | <a href="login.html" style="color: #ccc;">Login</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const burger = document.querySelector('.burger');
+            
+            navLinks.classList.toggle('active');
+            burger.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

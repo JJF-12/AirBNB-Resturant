@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RestaurantBook - Restaurant Review Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">RestaurantBook</div>
+            <div class="burger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="restaurants.html">Restaurants</a></li>
+                <li><a href="hotels.html">Hotels</a></li>
+                <li><a href="review.html">Write Review</a></li>
+                <li><a href="login.html" class="btn-login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="search-section">
+            <div class="container">
+                <h1>Restaurant Review Portal</h1>
+                <p>Discover, review and book restaurants & hotels worldwide</p>
+                
+                <form class="search-form">
+                    <input type="text" placeholder="Location (restaurants & hotels)" class="search-input">
+                    <input type="date" class="search-input">
+                    <input type="number" placeholder="Guests" min="1" max="20" class="search-input">
+                    <button type="submit" class="search-btn">Search</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="container" style="margin: 4rem auto; text-align: center;">
+            <div style="display: flex; gap: 2rem; justify-content: center; margin-bottom: 4rem; flex-wrap: wrap;">
+                <a href="restaurants.html" class="btn btn-primary" style="padding: 1.5rem 3rem; font-size: 1.2rem;">Browse Restaurants</a>
+                <a href="hotels.html" class="btn btn-secondary" style="padding: 1.5rem 3rem; font-size: 1.2rem;">Browse Hotels</a>
+                <a href="review.html" class="btn btn-success" style="padding: 1.5rem 3rem; font-size: 1.2rem;">Write Review</a>
+            </div>
+        </section>
+
+        <section class="container" style="margin: 4rem auto;">
+            <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2.5rem;">Featured Restaurants</h2>
+            <div class="grid">
+                <div class="card">
+                    <img src="cuisine-italian.jpg" alt="Bella Vista Italian" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Bella Vista Italian</h3>
+                        <p class="card-text">Italian • New York</p>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span>(124 reviews)</span>
+                        </div>
+                        <div class="price">$45.00 per person</div>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                            <a href="restaurant-details.html" class="btn btn-primary" style="flex: 1;">View Details</a>
+                            <a href="restaurant-details.html" class="btn btn-secondary">Reviews</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="cuisine-chinese.jpg" alt="Dragon Palace" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Dragon Palace</h3>
+                        <p class="card-text">Chinese • Los Angeles</p>
+                        <div class="rating">
+                            <span class="stars">★★★★☆</span>
+                            <span>(89 reviews)</span>
+                        </div>
+                        <div class="price">$32.00 per person</div>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                            <a href="restaurant-details.html" class="btn btn-primary" style="flex: 1;">View Details</a>
+                            <a href="restaurant-details.html" class="btn btn-secondary">Reviews</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="cuisine-mexican.jpg" alt="Taco Fiesta" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Taco Fiesta</h3>
+                        <p class="card-text">Mexican • Miami</p>
+                        <div class="rating">
+                            <span class="stars">★★★★★</span>
+                            <span>(156 reviews)</span>
+                        </div>
+                        <div class="price">$28.00 per person</div>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                            <a href="restaurant-details.html" class="btn btn-primary" style="flex: 1;">View Details</a>
+                            <a href="restaurant-details.html" class="btn btn-secondary">Reviews</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" style="margin: 4rem auto;">
+            <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2.5rem;">Popular Cuisines</h2>
+            <div class="grid">
+                <div class="card" style="text-align: center; cursor: pointer;">
+                    <img src="cuisine-italian.jpg" alt="Italian" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Italian</h3>
+                        <p class="card-text">45 restaurants</p>
+                    </div>
+                </div>
+                <div class="card" style="text-align: center; cursor: pointer;">
+                    <img src="cuisine-chinese.jpg" alt="Chinese" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Chinese</h3>
+                        <p class="card-text">32 restaurants</p>
+                    </div>
+                </div>
+                <div class="card" style="text-align: center; cursor: pointer;">
+                    <img src="cuisine-mexican.jpg" alt="Mexican" class="card-img">
+                    <div class="card-content">
+                        <h3 class="card-title">Mexican</h3>
+                        <p class="card-text">28 restaurants</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" style="margin: 4rem auto; text-align: center;">
+            <h2 style="margin-bottom: 3rem; font-size: 2.5rem;">Platform Features</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">🍽️ Restaurant Reviews</h3>
+                        <p class="card-text">Multi-category ratings for food quality, service & value</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">🏨 Hotel Reviews</h3>
+                        <p class="card-text">IMDb-style ratings for cleanliness, facilities & location</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">📝 Moderated Reviews</h3>
+                        <p class="card-text">All reviews moderated before publication</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title">💬 Comment System</h3>
+                        <p class="card-text">Users can comment on reviews with host responses</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 RestaurantBook - Restaurant Review Portal. All rights reserved.</p>
+            <p>Developer Team: Junaid Jabbar Faizi, Sami Ullah Khan, Usman Ehsan</p>
+            <p><a href="index.html" style="color: #ccc;">Home</a> | <a href="restaurants.html" style="color: #ccc;">Restaurants</a> | <a href="hotels.html" style="color: #ccc;">Hotels</a> | <a href="review.html" style="color: #ccc;">Write Review</a> | <a href="login.html" style="color: #ccc;">Login</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const burger = document.querySelector('.burger');
+            
+            navLinks.classList.toggle('active');
+            burger.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
